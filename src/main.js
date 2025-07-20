@@ -24,6 +24,7 @@ form.addEventListener('submit', async (e) => {
       message: "Please fill out this field !",
       backgroundColor: "#ff4e4e",
       position: "topRight",
+      // timeout:3000, 
     });
     return;
   }
@@ -44,6 +45,14 @@ form.addEventListener('submit', async (e) => {
 }
 
     createGallery(data.hits);
+    input.value = '';
+    iziToast.show({
+  message: `Found ${data.hits.length} images.`,
+  backgroundColor: "#00c851",
+  position: "topRight",
+  timeout: 3000,
+});
+
 
   } catch (error) {
   hideLoader();
@@ -56,3 +65,5 @@ form.addEventListener('submit', async (e) => {
   });
 }
 });
+
+
