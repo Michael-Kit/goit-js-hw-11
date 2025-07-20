@@ -19,8 +19,14 @@ const input = form.elements['search-text'];
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const query = input.value.trim();
-  if (!query) return;
-
+  if (!query) {
+    iziToast.show({
+      message: "Please fill out this field !",
+      backgroundColor: "#ff4e4e",
+      position: "topRight",
+    });
+    return;
+  }
   clearGallery();
   showLoader();
 
